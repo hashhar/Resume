@@ -1,7 +1,5 @@
 # ===== Custom.gitignore ===== #
-*.bat
 *.ps1
-*.cmd
 
 # ===== Global/Windows.gitignore ===== #
 # Windows image file caches

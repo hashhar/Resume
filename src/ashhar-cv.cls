@@ -563,6 +563,29 @@
     \end{tabular*}
 }
 
+% Define an environment for projentry.
+\newenvironment{projentries}{%
+    \vspace{\acvSectionContentTopSkip}
+    \begin{center}
+}{%
+    \end{center}
+}
+
+% Define an entry of project information.
+% Usage: \projentry{<title>}{<language or technology>}{<date>}{<description>}
+\newcommand*{\projentry}[4]{%
+    \vspace{-2.0mm}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+        \ifempty{#3}
+            {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\}
+            {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\
+            & \entrydatestyle{#3} \\}
+        \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}}
+    \end{tabular*}%
+}
+
 % Define an environment for cvhonour.
 \newenvironment{cvhonours}{%
     \vspace{\acvSectionContentTopSkip}
@@ -603,6 +626,19 @@
 
 % Define an environment for cvitems (for cventry).
 \newenvironment{cvitems}{%
+    \vspace{-4.0mm}
+    \begin{justify}
+    \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+        \setlength{\parskip}{0pt}
+        \renewcommand{\labelitemi}{\bullet}
+}{%
+    \end{itemize}
+    \end{justify}
+    \vspace{-4.0mm}
+}
+
+% Define an environment for projitems (for projentry).
+\newenvironment{projitems}{%
     \vspace{-4.0mm}
     \begin{justify}
     \begin{itemize}[leftmargin=2ex, nosep, noitemsep]

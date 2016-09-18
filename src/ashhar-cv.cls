@@ -582,11 +582,20 @@
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \ifempty{#3}
-      {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\}
-      {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\
-      & \entrydatestyle{#3} \\}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}}
+    \entrytitlestyle{#1} & \entrylocationstyle{#2}
+    \ifempty{#3#4}
+      {}
+      {\ifempty{#3}
+        {\ifempty{#4}
+          {}
+          {\\ \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}}}
+        }
+        {\ifempty{#4}
+          {\\ \entrydatestyle{#3}}
+          {\\ \entrydatestyle{#3} \\
+      \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}}}
+        }
+      }
   \end{tabular*}%
 }
 

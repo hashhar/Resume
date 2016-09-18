@@ -244,6 +244,10 @@
 \newcommand*{\honourdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
 \newcommand*{\honourlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 
+% For elements of achievement.
+\newcommand*{\achievementtitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\achievementdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+
 % For elements of skill.
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
@@ -605,6 +609,27 @@
   \honourdatestyle{#4} & \honourpositionstyle{#1}, \honourtitlestyle{#2} & \honourlocationstyle{#3} \\
 }
 
+% Define an environment for cvachievement.
+\newenvironment{cvachievements}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-6mm}
+  \begin{center}
+}{%
+  \end{center}
+  \vspace{8mm}
+}
+
+% Define a line of cv information (achievement).
+% Usage: \cvachievement{<title>}{<date>}
+\newcommand*{\cvachievement}[2]{%
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{1pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{\textwidth - 2.5cm} >{\vspace{-1.25mm}\raggedleft\arraybackslash}p{2.5cm}}
+    \achievementtitlestyle{#1} & \achievementdatestyle{#2} \\
+  \end{tabular*}%
+  \vspace{-1.1cm}
+}
+
 % Define an environment for cvskill.
 \newenvironment{cvskills}{%
   \vspace{\acvSectionContentTopSkip}
@@ -648,6 +673,17 @@
   \end{itemize}
   \end{justify}
   \vspace{-4.0mm}
+}
+
+% Define an environment for cvachievementtems (for cvachievement).
+\newenvironment{cvachievementitems}{%
+  \begin{justify}
+  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{%
+  \end{itemize}
+  \end{justify}
 }
 
 %-------------------------------------------------------------------------------

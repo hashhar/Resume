@@ -35,6 +35,7 @@ cleanall:
 	rm -f $(RESUMEBASE).pdfsync
 	rm -rf *~ *.tmp
 	rm -f *.bbl *.blg *.aux *.end *.fls *.log *.out *.fdb_latexmk
+	rm -f *.html *.htm
 
 # Clean extra files excluding ps, dvi and pdf files.
 clean:

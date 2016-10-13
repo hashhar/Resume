@@ -193,8 +193,8 @@
 
 \newfontfamily\bodyfontlight[
   Path=\@fontdir,
-  UprightFont=*-Light,
-  ItalicFont=*-LightIt,
+  UprightFont=*-Regular,
+  ItalicFont=*-SemiboldIt,
   BoldFont=*-Semibold,
   BoldItalicFont=*-SemiboldIt
 ]{SourceSansPro}
